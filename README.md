@@ -1,2 +1,5 @@
 # ORT Taller React - Entrega.
-## Gabriel Diaz - Juan Diego Garcia
+Authors: Gabriel Diaz - Juan Diego Garcia
+
+# React app (Not yet done)
+
