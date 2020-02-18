@@ -24,23 +24,22 @@ function addToCart(cart, item) {
 }
 
 function countCartItems(cart) {
-    const count = cart.length > 0 ? cart.reduce((accumulator, cartItem) => accumulator.count + cartItem.count) : 0;
-    return count;
+    let countCartItems = 0;
+    if(cart.length > 0) {
+        countCartItems = cart.length === 1 ? cart[0].count : cart.reduce((accumulator, cartItem) => accumulator.count + cartItem.count);
+    }
+
+    return countCartItems;
 }
 
 function countCartTotalAmount(cart) {
-    console.log(cart);
     if(cart.length > 0) {
         const cartPrice = cart.map((v) => {
             return v.count * v.price;
         });
+
         const precio = cartPrice.reduce((a, b) => a + b);
-        console.log({
-            subtotal: precio,
-            iva: precio * 0.23,
-            total:  precio * 1.23
-        });
-    
+
         return {
             subtotal: precio,
             iva: precio * 0.23,

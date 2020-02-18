@@ -1,5 +1,5 @@
-const services = require("./services");
-const utils = require("./utils");
+const services = require("../../Services/services");
+const utils = require("../../Utils/utils");
 
 let products = require("./products.json");
 //lista de productos harcodeada
