@@ -1,3 +1,4 @@
+//Juan Garcia da Rosa 234281 - Gabriel Diaz 205028
 function filterProductsByName(products, name) {
     return products.filter(product => {
         const productName = product.name.toUpperCase();
