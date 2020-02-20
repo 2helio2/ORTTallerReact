@@ -3,11 +3,15 @@ import React, { Component } from 'react';
 class LoginSignup extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            title: 'Login'
+        }
     }
     render() { 
         return (  
-            <></>
+            <>
+            <h1>{this.state.title}</h1>
+            </>
         );
     }
 }

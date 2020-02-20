@@ -6,7 +6,9 @@ class ProductList extends Component {
         this.state = {  }
     }
     render() { 
-        return (<></>);
+        return (<>
+        <h1>Product list</h1>
+        </>);
     }
 }
  
