@@ -1,0 +1,12 @@
+.itemsCollection {
+    display: grid;
+    max-width: var(--full-width);
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+}
+
+.itemsCollection article {
+    flex: 1 1 auto;
+}

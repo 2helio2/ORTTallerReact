@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import styles from './styles.module.css';
+import AddToCart from '../AddToCart';
 
 class Item extends Component {
     constructor(props) {
@@ -6,7 +8,17 @@ class Item extends Component {
         this.state = {  }
     }
     render() { 
-        return (<></>);
+        return (
+            <article className={styles.item}>
+                <div className={styles.imgWrapper}>
+                    <img src={this.props.item.photo} alt=""/>
+                </div>
+                
+                <h3>{this.props.item.name}</h3>
+                <p>{this.props.item.description}</p>
+                <AddToCart item={this.props.item} />
+            </article>
+        );
     }
 }
  

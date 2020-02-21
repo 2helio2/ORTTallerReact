@@ -1,0 +1,17 @@
+.item {
+    box-shadow: var(--main-sm-shadow);
+    padding: var(--main-gap);
+}
+
+.imgWrapper{
+    height: 130px;
+    overflow: hidden;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}

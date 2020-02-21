@@ -7,7 +7,7 @@ function filterProductsByName(products, name) {
     });
 }
 
-function addToCart(cart, item) {
+export const addToCart = (cart, item) => {
     let cartItem;
     let newCart = Array.from(cart);
     
@@ -18,6 +18,8 @@ function addToCart(cart, item) {
     if(!!cartItem) {
         cartItem.count = cartItem.count + 1;
     } else {
+        cartItem = item;
+        cartItem.count = 1;
         newCart.push(item);
     }
 
@@ -54,10 +56,3 @@ function countCartTotalAmount(cart) {
         };
     }
 }
-
-module.exports = {
-    filterProductsByName,
-    addToCart,
-    countCartItems,
-    countCartTotalAmount
-};
