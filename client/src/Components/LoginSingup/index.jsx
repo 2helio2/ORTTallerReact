@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import Login from '../../Services/services';
-import { Redirect } from 'react-router-dom';
-
-
+import { connect } from 'react-redux';
+import { LOG_USER } from '../../Redux/Actions/actionTypes';
+import { logUser } from '../../Redux/Actions';
 
 class LoginSignup extends Component {
     constructor(props) {
@@ -33,10 +33,15 @@ class LoginSignup extends Component {
         Login(this.state.email, this.state.password)
         .then(res => {
             if(res.statusText === "OK") {
-                    const p = this.props;
-                    debugger;
-                    this.props.history.push("/ProductList");
-                    // return <Redirect to="/ProductList" />
+                    this.props.dispatch({ 
+                        type: LOG_USER, 
+                        payload: {
+                            userName: this.state.email,
+                            password: this.state.password,
+                            loggedin: true
+                        }
+                    })
+                    this.props.history.push("/");
                 }   
             }
         )
@@ -63,5 +68,10 @@ class LoginSignup extends Component {
         );
     }
 }
+const mapStateToProps = state => {
+    return {
+        user: state.user
+    }
+}
  
-export default LoginSignup;
+export default connect(mapStateToProps)(LoginSignup);

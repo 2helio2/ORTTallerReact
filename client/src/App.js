@@ -13,8 +13,8 @@ function App() {
     <Router>
       <div className="App">
         <Switch>
-          <Route exact path="/" component={LoginSignup}></Route>
-          <Route exact path="/ProductList" component={ProductList}></Route>
+          <Route exact path="/login" component={LoginSignup}></Route>
+          <Route exact path="/" component={ProductList}></Route>
         </Switch>
       </div>
     </Router>
