@@ -18,6 +18,8 @@ function addToCart(cart, item) {
     if(!!cartItem) {
         cartItem.count = cartItem.count + 1;
     } else {
+        cartItem = item;
+        cartItem.count = 1;
         newCart.push(item);
     }
 

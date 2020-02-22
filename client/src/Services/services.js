@@ -15,7 +15,7 @@ const signUp = async (userName, pass) => {
     return await signUp;
 }
 
-const Login = async (userName, pass) => {
+export const Login = async (userName, pass) => {
     const signUp = axios.post(
         `${API_URL}/user/login`,
         {
@@ -27,15 +27,8 @@ const Login = async (userName, pass) => {
     return await signUp;
 }
 
-const getProducts = async ()  => {
+export const getProducts = async ()  => {
     const response = axios(`${API_URL}/product/all`);
     
     return await response;
 }
-
-/*module.exports = {
-    signUp,
-    login,
-    getProducts
-};*/
-export default Login;
