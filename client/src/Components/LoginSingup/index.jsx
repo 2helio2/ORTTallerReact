@@ -3,31 +3,40 @@ import Login from '../../Services/services';
 import { Redirect } from 'react-router-dom';
 
 
+
 class LoginSignup extends Component {
     constructor(props) {
         super(props);
+
         this.state = { 
             title: 'Login',
             email: '',
             password: ''
         };
-        this.handleLogin = this.handleLogin.bind(this);
-        this.handleChangeEmail = this.handleChangeEmail.bind(this);
-        this.handleChangePassword = this.handleChangePassword.bind(this);
-    }
-    handleChangeEmail(mail){
-        this.setState({email: mail.target.value});
-    }
-    handleChangePassword(pass){
-        this.setState({password: pass.target.value});
     }
 
-    handleLogin(event){
+    handleChangeEmail = (mail) => {
+        this.setState({
+            email: mail.target.value
+        });
+    }
+    
+    handleChangePassword = (pass) => {
+        this.setState({
+            password: pass.target.value
+        });
+    }
+
+    handleLogin = (event) => {
         event.preventDefault();
-        Login(this.state.email,this.state.password)
-        .then(res=>{
-            if(res.statusText === "OK"){
-                    return <Redirect to="/ProductList" />
+
+        Login(this.state.email, this.state.password)
+        .then(res => {
+            if(res.statusText === "OK") {
+                    const p = this.props;
+                    debugger;
+                    this.props.history.push("/ProductList");
+                    // return <Redirect to="/ProductList" />
                 }   
             }
         )
