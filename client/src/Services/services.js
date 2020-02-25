@@ -3,7 +3,7 @@
 import axios from "axios";
 const API_URL = "http://tiendaonline2020.herokuapp.com/api";
 
-const signUp = async (userName, pass) => {
+export const signUp = async (userName, pass) => {
     const signUp = axios.post(
         `${API_URL}/user/register`,
         {

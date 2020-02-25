@@ -6,7 +6,10 @@ class CartItem extends Component {
         this.state = {  }
     }
     render() { 
-        return (<></>);
+        return (<>
+        {this.props.name}
+        {this.props.count}
+        </>);
     }
 }
  

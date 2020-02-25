@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { GET_PRODUCTS } from '../../Redux/Actions/actionTypes';
 import { getProducts } from '../../Services/services';
 import ItemsCollection from '../ItemsCollection';
+import Cart from '../Cart';
 
 class ProductList extends Component {
     constructor(props) {
@@ -28,6 +29,7 @@ class ProductList extends Component {
     render() { 
         return (<>
             <h1>Product list</h1>
+            <Cart />
             <ItemsCollection items={this.state.productsList} />
         </>);
     }

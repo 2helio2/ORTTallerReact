@@ -6,7 +6,11 @@ class Message extends Component {
         this.state = {  }
     }
     render() { 
-        return (<></>);
+        return (
+            <div className={this.props.color}>
+                <p>{this.props.message}</p>
+            </div>
+        );
     }
 }
  
