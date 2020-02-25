@@ -18,6 +18,8 @@ function addToCart(cart, item) {
     if(!!cartItem) {
         cartItem.count = cartItem.count + 1;
     } else {
+        cartItem = item;
+        cartItem.count = 1;
         newCart.push(item);
     }
 
@@ -42,9 +44,9 @@ function countCartTotalAmount(cart) {
         const precio = cartPrice.reduce((a, b) => a + b);
 
         return {
-            subtotal: precio,
-            iva: precio * 0.23,
-            total:  precio * 1.23
+            subtotal: round(precio),
+            iva: round(precio * 0.23),
+            total:  round(precio * 1.23)
         }; 
     } else {
         return {
@@ -53,6 +55,10 @@ function countCartTotalAmount(cart) {
             total:  0
         };
     }
+}
+
+function round (num) {
+    return +(Math.round(num + "e+2")  + "e-2");
 }
 
 module.exports = {

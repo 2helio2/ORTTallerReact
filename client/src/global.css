@@ -1,0 +1,46 @@
+:root {
+    --primary-color: #1abc9c;
+    --primary-color-dark: #16a085;
+    --grey-color: #cccccc;
+    --grey-lighter-color: #F9F9F9;
+    --element-background: #ffffff;
+    --main-sm-shadow: 0px 0px 5px var(--grey-color);
+    --main-sm-border: 1px solid var(--grey-color);
+    --primary-sm-border: 1px solid var(--primary-color-dark);
+    --full-width: 1280px;
+    --main-gap: 15px;
+    --small-gap: 5px;
+    --input-padding: 5px;
+    --input-height: 40px;
+    --global: '../../global.css';
+    --alert-color: #f0938a;
+    --success-color: #2ecc71;
+}
+
+body {
+    background-color: var(--grey-lighter-color);
+}
+
+.btn-primary {
+    background-color: #1abc9c;
+    color: white;
+    border: var(--primary-sm-border);
+    padding: var(--input-padding);
+    min-width: 100px;
+    cursor: pointer;
+}
+
+.btn-link {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.input {
+    padding: var(--input-padding);
+    margin: 0 0 var(--small-gap) 0;
+}
+
+.red {
+    color: var(--alert-color);
+}

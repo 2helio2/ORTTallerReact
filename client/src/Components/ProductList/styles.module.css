@@ -1,0 +1,11 @@
+.ProductList {
+    max-width: var(--full-width);
+    margin: 0 auto;
+}
+
+.ProductList main{
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 15px;
+}

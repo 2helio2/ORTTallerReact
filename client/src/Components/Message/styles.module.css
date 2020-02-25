@@ -1,0 +1,17 @@
+.message {
+    display: inline-block;
+    color: white;
+    padding: var(--small-gap) var(--main-gap);
+}
+
+.red {
+    background-color: var(--alert-color);
+}
+
+.green {
+    background-color: var(--success-color);
+}
+
+p {
+    margin: 0;
+}

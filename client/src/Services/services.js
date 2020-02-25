@@ -1,8 +1,9 @@
 //Juan Garcia da Rosa 234281 - Gabriel Diaz 205028
-const axios = require("axios");
+//const axios = require("axios");
+import axios from "axios";
 const API_URL = "http://tiendaonline2020.herokuapp.com/api";
 
-const signUp = async (userName, pass) => {
+export const signUp = async (userName, pass) => {
     const signUp = axios.post(
         `${API_URL}/user/register`,
         {
@@ -14,7 +15,7 @@ const signUp = async (userName, pass) => {
     return await signUp;
 }
 
-const login = async (userName, pass) => {
+export const Login = async (userName, pass) => {
     const signUp = axios.post(
         `${API_URL}/user/login`,
         {
@@ -26,14 +27,8 @@ const login = async (userName, pass) => {
     return await signUp;
 }
 
-const getProducts = async ()  => {
+export const getProducts = async ()  => {
     const response = axios(`${API_URL}/product/all`);
     
     return await response;
 }
-
-module.exports = {
-    signUp,
-    login,
-    getProducts
-};
