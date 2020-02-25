@@ -4,6 +4,8 @@ import { GET_PRODUCTS } from '../../Redux/Actions/actionTypes';
 import { getProducts } from '../../Services/services';
 import ItemsCollection from '../ItemsCollection';
 import Cart from '../Cart';
+import Loader from '../Loader';
+import styles from './styles.module.css';
 
 class ProductList extends Component {
     constructor(props) {
@@ -14,7 +16,7 @@ class ProductList extends Component {
     }
 
     componentWillMount() {
-        if(this.props.user.loggedin) {
+        if(!this.props.user.loggedin) {
             this.props.history.push('/login');
         } else {
             getProducts().then(res => {
@@ -27,11 +29,19 @@ class ProductList extends Component {
     }
 
     render() { 
-        return (<>
-            <h1>Product list</h1>
-            <Cart />
-            <ItemsCollection items={this.state.productsList} />
-        </>);
+        return (
+            <section className={styles.ProductList}>
+                <h1>Product list</h1>
+                <main>
+                    <section className={styles.ItemsCollection}>
+                        {this.state.productsList.length > 0 ? <ItemsCollection items={this.state.productsList} /> : <Loader /> }
+                    </section>
+                    <section className={styles.Cart}>
+                        <Cart />
+                    </section>
+                </main>
+            </section>
+        );
     }
 }
 

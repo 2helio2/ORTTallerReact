@@ -1,6 +1,7 @@
 .item {
     box-shadow: var(--main-sm-shadow);
     padding: var(--main-gap);
+    background-color: var(--element-background);
 }
 
 .imgWrapper{

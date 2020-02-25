@@ -2,33 +2,39 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CartItem from '../CartItem';
 import { countCartTotalAmount } from '../../Utils/utils';
+import { REMOVE_FROM_CART } from '../../Redux/Actions/actionTypes';
+import styles from './styles.module.css';
 
-class Cart extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {  }
-
+class Cart extends Component {   
+    deleteCartItem = (id) =>{
+        const newCart = this.props.cartItems.filter(cartItem => cartItem._id !== id);
+        this.props.dispatch({type: REMOVE_FROM_CART, payload: newCart});
     }
 
-    
-    handleDelete=(key)=>{
-        console.log(key)
-    }
-    amount=(cart)=>{
-        const Total = countCartTotalAmount(cart);
-        console.log(Total.total)
-        return `Subtotal: ${Total.subtotal} Iva: ${Total.iva} Total: ${Total.total}`
+    amount = (cart) => {
+        const total = countCartTotalAmount(cart);
+        
+        return {
+            subtotal: total.subtotal,
+            iva: total.iva,
+            total: total.total
+        }
     }
 
     render() { 
-        return (<>
-        <h1>cart</h1>
-        <ul>
-        {this.props.cartItems.map(cartItem =>
-        <li key={cartItem.name}><CartItem name={cartItem.name}/> <CartItem count={cartItem.count}/> <button onClick={this.handleDelete(cartItem.name)}>X</button></li>)}
-        </ul>
-        <div><p>{this.amount(this.props.cartItems)}</p></div>
-        </>);
+        return (
+            <article className={styles.CartWrapper}>
+                <h1>Cart</h1>
+                {this.props.cartItems.map(cartItem =>
+                        <CartItem key={cartItem._id} id={cartItem._id} name={cartItem.name} count={cartItem.count} deleteCartItem={this.deleteCartItem}/>                            
+                )}
+                <div>
+                    <p>Subtotal: {this.amount(this.props.cartItems).subtotal}</p>
+                    <p>Iva: {this.amount(this.props.cartItems).iva}</p>
+                    <p>Total: {this.amount(this.props.cartItems).total}</p>
+                </div>
+            </article>
+        );
     }
 }
  

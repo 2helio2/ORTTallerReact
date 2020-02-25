@@ -1,0 +1,5 @@
+.CartWrapper {
+    padding: var(--main-gap);
+    box-shadow: var(--main-sm-shadow);
+    background-color: var(--element-background);
+}

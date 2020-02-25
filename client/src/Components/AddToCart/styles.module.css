@@ -1,0 +1,4 @@
+.addToCartBtn {
+    composes: btn-primary from '../../global.css';
+    margin-top: var(--main-gap);
+}

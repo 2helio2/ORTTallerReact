@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { addToCart } from '../../Utils/utils';
 import { ADD_TO_CART } from '../../Redux/Actions/actionTypes';
 import { connect } from 'react-redux';
+import styles from './styles.module.css';
 
 class AddToCart extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class AddToCart extends Component {
     render() { 
         return (
             <>
-                <input onClick={(e)=>this.handleClick(e)} type='button' value='Add to cart' />
+                <input className={styles.addToCartBtn} onClick={(e)=>this.handleClick(e)} type='button' value='Add to cart' />
             </>
         );
     }

@@ -1,0 +1,27 @@
+.actions {
+    padding: var(--main-gap) 0;
+}
+
+button {
+    margin-right: var(--main-gap);
+}
+
+.btnLink {
+    composes: btn-link from '../../global.css';
+}
+
+.btnPrimary {
+    composes: btn-primary from '../../global.css';
+}
+
+.loginForm {
+    max-width: 600px;
+    margin: 50px auto;
+    border: var(--main-sm-border);
+    padding: var(--main-gap);
+    background-color: var(--element-background);
+}
+
+.input {
+    composes: input from '../../global.css';
+}

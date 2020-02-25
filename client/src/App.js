@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom';
 import LoginSignup from './Components/LoginSingup';
 import ProductList from './Components/ProductList';
+import './global.css';
 
 function App() {
   return (
