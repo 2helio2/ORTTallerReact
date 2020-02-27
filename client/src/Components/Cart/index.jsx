@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CartItem from '../CartItem';
-import { countCartTotalAmount } from '../../Utils/utils';
+import { countCartTotalAmount, countCartItems } from '../../Utils/utils';
 import { REMOVE_FROM_CART } from '../../Redux/Actions/actionTypes';
 import styles from './styles.module.css';
 
@@ -20,6 +20,9 @@ class Cart extends Component {
             total: total.total
         }
     }
+    countItems=(cart)=>{
+        return countCartItems(cart)
+    }
 
     render() { 
         return (
@@ -32,6 +35,9 @@ class Cart extends Component {
                     <p>Subtotal: {this.amount(this.props.cartItems).subtotal}</p>
                     <p>Iva: {this.amount(this.props.cartItems).iva}</p>
                     <p>Total: {this.amount(this.props.cartItems).total}</p>
+                </div>
+                <div>
+                    <p>Carrito:{this.countItems(this.props.cartItems)}</p>
                 </div>
             </article>
         );
