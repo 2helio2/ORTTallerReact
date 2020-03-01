@@ -1,0 +1,30 @@
+.mainHeader {
+    background-color: var(--element-background);
+    padding: var(--main-gap);
+    box-shadow: var(--main-sm-shadow);
+    display: flex;
+    text-align: right;
+}
+
+.cartIcon{
+    height: 25px;
+}
+
+.cart{
+    position: relative;
+}
+
+.count{
+    position: absolute;
+    padding: 2px;
+    background-color: red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    font-size: 0.8rem;
+    line-height: 10px;
+    text-align: center;
+    color: white;
+    right: -4px;
+    top: -4px;
+}

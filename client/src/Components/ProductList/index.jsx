@@ -8,6 +8,7 @@ import Loader from '../Loader';
 import styles from './styles.module.css';
 import ProductSearch from '../ProductSearch';
 import { filterProductsByName } from '../../Utils/utils';
+import Header from '../Header';
 
 class ProductList extends Component {
     constructor(props) {
@@ -48,6 +49,8 @@ class ProductList extends Component {
 
     render() { 
         return (
+            <>
+            <Header/>       
             <section className={styles.ProductList}>
                 <h1>Product list</h1>
                 <ProductSearch filterProducts={this.filterProducts}/>
@@ -60,6 +63,7 @@ class ProductList extends Component {
                     </section>
                 </main>
             </section>
+            </>
         );
     }
 }

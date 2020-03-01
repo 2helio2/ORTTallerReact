@@ -10,7 +10,7 @@
     position: relative;
 }
 
-img {
+.img {
     max-width: 100%;
     position: absolute;
     left: 0;

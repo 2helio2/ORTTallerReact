@@ -11,7 +11,7 @@ class Item extends Component {
         return (
             <article className={styles.item}>
                 <div className={styles.imgWrapper}>
-                    <img src={this.props.item.photo} alt=""/>
+                    <img className={styles.img} src={this.props.item.photo} alt=""/>
                 </div>
                 
                 <h3>{this.props.item.name}</h3>

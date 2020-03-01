@@ -7,19 +7,20 @@ function filterProductsByName(products, name) {
     });
 }
 
-function addToCart(cart, item) {
+function addToCart(cart, item, quantity) {
     let cartItem;
     let newCart = Array.from(cart);
+    let fixedQuantity = typeof quantity === 'string'? parseInt(quantity):quantity;
     
     if(cart.length > 0) {
         cartItem = cart.find(cartItem => item._id === cartItem._id);
     }
 
     if(!!cartItem) {
-        cartItem.count = cartItem.count + 1;
+        cartItem.count = cartItem.count + fixedQuantity;
     } else {
         cartItem = item;
-        cartItem.count = 1;
+        cartItem.count = fixedQuantity;
         newCart.push(item);
     }
 
@@ -29,9 +30,7 @@ function addToCart(cart, item) {
 function countCartItems(cart) {
     let countCartItems = 0;
     if(cart.length > 0) {
-        countCartItems = cart.length === 1 ? cart[0].count : cart.reduce((accumulator, cartItem) => accumulator.count + cartItem.count);
-    }
-
+        countCartItems = cart.length === 1 ? cart[0].count : cart.reduce((accumulator, { count }) =>  accumulator + count , 0)};
     return countCartItems;
 }
 
