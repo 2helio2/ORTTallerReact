@@ -1,4 +1,4 @@
-import { GET_PRODUCTS } from '../Actions/actionTypes';
+import ACTIONS from '../Actions/actionTypes';
 
 const initialState = {
     itemsCollection: []
@@ -6,8 +6,8 @@ const initialState = {
 
 export const products = (state = initialState, action) => {
     switch(action.type) {
-        case GET_PRODUCTS: {
-            const products = action.payload;
+        case ACTIONS.GET_PRODUCTS: {
+            const products = action.payload.content;
 
             return {
                 ...state,

@@ -1,41 +1,49 @@
-import { LOG_USER } from './actionTypes';
-import { GET_PRODUCTS } from '../Actions/actionTypes';
-import { GET_CART } from '../Actions/actionTypes';
-import { ADD_TO_CART } from '../Actions/actionTypes';
-import { REMOVE_FROM_CART } from '../Actions/actionTypes';
+import ACTIONS from './actionTypes';
 
-export const getProducts = content => ({
-    type: GET_PRODUCTS,
+export const saveProducts = content => ({
+    type: ACTIONS.GET_PRODUCTS,
     payload: {
         content
     }
 });
 
 export const getCart = content => ({
-    type: GET_CART,
+    type: ACTIONS.GET_CART,
     payload: {
         content
     }
 })
 
 export const removeFromCart = content => ({
-    type: REMOVE_FROM_CART,
+    type: ACTIONS.REMOVE_FROM_CART,
     payload: {
         content
     }
 })
 
-export const addToCart = content => ({
-    type: ADD_TO_CART,
+export const addCartToStore = content => ({
+    type: ACTIONS.ADD_TO_CART,
+    payload: {
+        content
+    }
+})
+
+export const clearCart = content => ({
+    type: ACTIONS.CLEAR_CART,
     payload: {
         content
     }
 })
 
 export const logUser = content => ({
-    type: LOG_USER,
+    type: ACTIONS.LOG_USER,
     payload: {
         content
     }
+});
+
+export const logOutUser = () => ({
+    type: ACTIONS.LOGOUT_USER,
+    payload: {}
 });
 

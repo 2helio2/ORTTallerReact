@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { addToCart } from '../../Utils/utils';
-import { ADD_TO_CART } from '../../Redux/Actions/actionTypes';
+import { addCartToStore } from '../../Redux/Actions/';
 import { connect } from 'react-redux';
 import styles from './styles.module.css';
 
@@ -14,10 +14,9 @@ class AddToCart extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
-        
         const newCart = addToCart(this.props.cart, this.props.item, this.state.quantity);
         
-        this.props.dispatch({ type: ADD_TO_CART, payload: newCart });
+        this.props.dispatch(addCartToStore(newCart));
     }
     handleChangeQuantity = (e) =>{
         e.preventDefault();
@@ -29,7 +28,7 @@ class AddToCart extends Component {
     render() { 
         return (
             <>
-                <input type="number" onChange={(e)=>this.handleChangeQuantity(e)}/>         
+                <input value={this.state.quantity} className={styles.quantity} type="number" onChange={(e)=>this.handleChangeQuantity(e)}/>         
                 <input className={styles.addToCartBtn} onClick={(e)=>this.handleClick(e)} type='button' value='Add to cart' />   
             </>
         );

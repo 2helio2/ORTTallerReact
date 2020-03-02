@@ -16,7 +16,8 @@ class Item extends Component {
                 
                 <h3>{this.props.item.name}</h3>
                 <p>{this.props.item.description}</p>
-                <p>Price: ${this.props.item.price}</p>
+                <div className={styles.price}>${this.props.item.price}</div>
+
                 <AddToCart item={this.props.item} />
             </article>
         );

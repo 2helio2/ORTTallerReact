@@ -1,4 +1,4 @@
-import { LOG_USER } from '../Actions/actionTypes';
+import ACTIONS from '../Actions/actionTypes';
 
 const initialState = {
     userName: '',
@@ -8,16 +8,22 @@ const initialState = {
 
 export const user = (state = initialState, action) => {
     switch(action.type) {
-        case LOG_USER:
-            const user = action.payload;
+        case ACTIONS.LOG_USER:
+            const user = action.payload.content;
             const loggedin = user.userName.length > 0;
 
             return {
-                ...state,
                 userName: user.userName,
                 password: user.password,
                 loggedin: loggedin
             }
+        case ACTIONS.LOGOUT_USER:
+            return {
+                userName: '',
+                password: '',
+                loggedin: false
+            }
+
         default:
             return state
     }

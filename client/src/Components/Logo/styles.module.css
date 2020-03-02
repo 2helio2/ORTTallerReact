@@ -1,0 +1,13 @@
+.logoWrapper {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    height: 40px;
+    margin-right: var(--main-gap);
+}
+
+.logoWrapper > h1{
+    margin: 0;
+}

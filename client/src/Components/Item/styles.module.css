@@ -16,3 +16,9 @@
     left: 0;
     bottom: 0;
 }
+
+.price {
+    margin: var(--main-gap) 0;
+    text-align: right;
+    font-size: 1.5rem;
+}

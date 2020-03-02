@@ -3,3 +3,7 @@
     box-shadow: var(--main-sm-shadow);
     background-color: var(--element-background);
 }
+
+.CartWrapper h3 {
+    margin: 0;
+}

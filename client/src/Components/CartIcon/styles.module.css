@@ -1,0 +1,24 @@
+.cartIcon{
+    height: 25px;
+}
+
+.cart{
+    position: relative;
+    display: inline-block;
+    max-width: 30px;
+}
+
+.count{
+    position: absolute;
+    padding: 2px;
+    background-color: red;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    font-size: 0.8rem;
+    line-height: 14px;
+    text-align: center;
+    color: white;
+    right: -8px;
+    top: -8px;
+}

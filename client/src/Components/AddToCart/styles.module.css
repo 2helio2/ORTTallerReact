@@ -2,3 +2,9 @@
     composes: btn-primary from '../../global.css';
     margin-top: var(--main-gap);
 }
+
+.quantity {
+    max-width: 50px;
+    padding: 5px;
+    margin-right: var(--main-gap);
+}

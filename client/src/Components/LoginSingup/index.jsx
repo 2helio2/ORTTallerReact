@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Login } from '../../Services/services';
 import { signUp} from '../../Services/services';
 import { connect } from 'react-redux';
-import { LOG_USER } from '../../Redux/Actions/actionTypes';
+import { logUser } from '../../Redux/Actions/';
 import Loader from '../Loader';
 import Message from '../Message';
 import styles from './styles.module.css';
@@ -50,27 +50,23 @@ class LoginSignup extends Component {
             loading: true
         })
 
-        Login(this.state.email, this.state.password)
-        .then(res => {
-            if(res.statusText === "OK") {
-                    this.props.dispatch({ 
-                        type: LOG_USER, 
-                        payload: {
-                            userName: this.state.email,
-                            password: this.state.password,
-                            loggedin: true
-                        }
-                    })
+        Login(this.state.email, this.state.password).then(res => {
+                if(res.statusText === "OK") {
+                    const user = {
+                        userName: this.state.email,
+                        password: this.state.password,
+                        loggedin: true
+                    };
+
+                    this.props.dispatch(logUser(user));
                     this.props.history.push("/");
                 }   
-            }
-        )
-        .catch(e=> {this.setState({
-                    color:'red',
-                    message: 'contraseña o usuario incorrecto',
-                    loading: false
-                })
-            });
+        }).catch(e => {this.setState({
+                color:'red',
+                message: 'contraseña o usuario incorrecto',
+                loading: false
+            })
+        });
     }
 
     handleSignUp = (event) => {
@@ -82,14 +78,13 @@ class LoginSignup extends Component {
         signUp(this.state.email, this.state.password)
         .then(res => {
             if(res.status === 200) {
-                this.props.dispatch({ 
-                    type: LOG_USER, 
-                    payload: {
-                        userName: this.state.email,
-                        password: this.state.password,
-                        loggedin: true
-                    }
-                })
+                const user = {
+                    userName: this.state.email,
+                    password: this.state.password,
+                    loggedin: true
+                };
+
+                this.props.dispatch(logUser(user));
 
                 this.setState({
                     color:'green',

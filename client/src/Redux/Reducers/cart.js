@@ -1,6 +1,4 @@
-import { ADD_TO_CART } from '../Actions/actionTypes';
-import { REMOVE_FROM_CART } from '../Actions/actionTypes';
-import { GET_CART } from '../Actions/actionTypes';
+import ACTIONS from '../Actions/actionTypes';
 
 const initialState = {
     cart: []
@@ -8,26 +6,33 @@ const initialState = {
 
 export const cart = (state = initialState, action) => {
     switch(action.type) {
-        case GET_CART: {
+        case ACTIONS.GET_CART: {
             return {
                 ...state,
                 cart: state.cart
             }
         }
-        case ADD_TO_CART: {
-            const cart = action.payload;
+        case ACTIONS.ADD_TO_CART: {
+            const cart = action.payload.content;
             return {
                 ...state,
                 cart: cart
             }
         }
-        case REMOVE_FROM_CART: {
-            const cart = action.payload;
+        case ACTIONS.REMOVE_FROM_CART: {
+            const cart = action.payload.content;
             return {
                 ...state,
                 cart: cart
             }
         }
+
+        case ACTIONS.CLEAR_CART: {
+            return {
+                cart: []
+            }
+        }
+
         default: 
             return state;
     }

@@ -2,29 +2,26 @@
     background-color: var(--element-background);
     padding: var(--main-gap);
     box-shadow: var(--main-sm-shadow);
+    margin-bottom: 20px;
+}
+
+.headerWrapper {
     display: flex;
-    text-align: right;
+    align-items: center;
+    max-width: var(--full-width);
+    margin: 0 auto;
 }
 
-.cartIcon{
-    height: 25px;
+.leftMenu, .rightMenu {
+    flex: 1 1 auto;
 }
 
-.cart{
-    position: relative;
+.rightMenu {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.count{
-    position: absolute;
-    padding: 2px;
-    background-color: red;
-    border-radius: 50%;
-    width: 10px;
-    height: 10px;
-    font-size: 0.8rem;
-    line-height: 10px;
-    text-align: center;
-    color: white;
-    right: -4px;
-    top: -4px;
+.rightMenu > div {
+    display: inline-block;
+    margin-left: var(--main-gap);
 }
