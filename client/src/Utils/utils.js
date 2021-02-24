@@ -2,7 +2,6 @@
 function filterProductsByName(products, name) {
     return products.filter(product => {
         const productName = product.name.toUpperCase();
-        
         return productName.includes(name.toUpperCase());
     });
 }
