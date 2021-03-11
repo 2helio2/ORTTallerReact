@@ -19,7 +19,7 @@ class ProductList extends Component {
     }
 
     componentWillMount() {
-        if(this.props.user.loggedin) {
+        if(!this.props.user.loggedin) {
             this.props.history.push('/login');
         } else {
             getProducts().then(res => {
